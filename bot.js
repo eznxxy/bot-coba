@@ -12,14 +12,20 @@ bot.onText(/\/start/, (msg) => {
   bot.sendMessage(chatId, 'Halo! irvan tolol. Bagaimana kabarmuu hari ini?? kok malah main stardewy valley anjing');
 });
 
-// Respon pesan teks biasa
-bot.on('message', (msg) => {
-  const chatId = msg.chat.id;
-  const text = msg.text;
+bot.onText(/\/help/, (msg) => {
+    const chatId = msg.chat.id;
+    bot.sendMessage(chatId, `
+/kentu *untuk melakukan seks
+/me *untuk melihat profile
+        `);
+  });
 
-  if (text.toLowerCase() === 'halo') {
-    bot.sendMessage(chatId, 'Halo juga! Apa kabar?');
-  } else {
-    bot.sendMessage(chatId, 'Saya tidak mengerti. Coba ketik "Halo"!');
-  }
+bot.onText(/\/kentu/, (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, 'Bot sedang kentu bersama anda!');
+});
+
+bot.onText(/\/me/, (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, 'Kamu sedang melihat profilmu sendiri tolol');
 });
